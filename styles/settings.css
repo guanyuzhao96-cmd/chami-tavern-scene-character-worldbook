@@ -865,6 +865,17 @@ input[type="color"].tsp-input::-moz-color-swatch {
     height: 100%;
     object-fit: cover;
 }
+
+#fab-icon-preview {
+    aspect-ratio: 1 / 1;
+    max-width: 200px;
+}
+
+#fab-icon-preview img {
+    object-fit: contain;
+    padding: 10px;
+    box-sizing: border-box;
+}
 /* ... existing code ... */
 
 /* ==================== 更新日志样式 ==================== */

@@ -25,6 +25,51 @@
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     user-select: none;
     touch-action: none;
+    overflow: hidden;
+}
+
+.tsp-fab-custom-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    pointer-events: none;
+}
+
+.tsp-fab.has-custom-icon {
+    --fab-scale: 1;
+    background: transparent !important;
+    box-shadow: none !important;
+    color: transparent;
+    border-radius: 0 !important;
+    overflow: visible !important;
+    width: auto;
+    height: auto;
+    min-width: calc(48px * var(--fab-scale));
+    min-height: calc(48px * var(--fab-scale));
+}
+
+.tsp-fab.has-custom-icon .tsp-fab-custom-icon {
+    max-width: calc(48px * var(--fab-scale));
+    max-height: calc(48px * var(--fab-scale));
+    width: auto;
+    height: auto;
+}
+
+.tsp-fab.has-custom-icon:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.4));
+}
+
+@media screen and (max-width: 900px) {
+    .tsp-fab.has-custom-icon {
+        min-width: calc(42px * var(--fab-scale));
+        min-height: calc(42px * var(--fab-scale));
+    }
+    .tsp-fab.has-custom-icon .tsp-fab-custom-icon {
+        max-width: calc(42px * var(--fab-scale));
+        max-height: calc(42px * var(--fab-scale));
+    }
 }
 
 .tsp-fab:hover {
@@ -144,7 +189,7 @@
         font-size: 16px;
     }
     .tsp-fab {
-        width: 42px;  
+        width: 42px;
         height: 42px;
         font-size: 18px;
     }
@@ -169,7 +214,7 @@
     color: var(--tsp-btn-gen-text, #1b1b1b); /* 增加文字颜色变量 */
     font-size: 14px;
     cursor: pointer;
-    box-shadow: 0 2px 8px rgba(212, 154, 58, 0.35); 
+    box-shadow: 0 2px 8px rgba(212, 154, 58, 0.35);
     transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
     vertical-align: middle;
     white-space: nowrap;
@@ -197,10 +242,10 @@
 
 /* ==================== 聊天内嵌图片 ==================== */
 .tsp-image-slot {
-    display: block;           
-    width: fit-content;        
-    max-width: 100%;             
-    margin: 10px 0;              
+    display: block;
+    width: fit-content;
+    max-width: 100%;
+    margin: 10px 0;
     /* flex-direction: column; */
     /* align-items: flex-start; */
     /* gap: 0; */
@@ -245,7 +290,7 @@ body.tsp-mode-double-click .tsp-regenerate-btn {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     cursor: pointer;
     margin-top: 0 !important;
-    object-fit: contain;  
+    object-fit: contain;
 }
 
 .tsp-inline-image:hover {
@@ -264,7 +309,7 @@ body.tsp-mode-double-click .tsp-regenerate-btn {
     border-radius: 8px;
     margin-top: 8px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-    object-fit: contain;  
+    object-fit: contain;
 }
 /* ==================== 隐私模式折叠层样式 ==================== */
 .tsp-privacy-container {

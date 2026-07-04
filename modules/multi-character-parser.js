@@ -1,1 +1,470 @@
-const _0x117f48=_0x18cb;(function(_0x43733d,_0x424563){const _0x25309b=_0x18cb,_0x6629c=_0x43733d();while(!![]){try{const _0x342dfc=parseInt(_0x25309b(0x1b8))/0x1*(parseInt(_0x25309b(0x19a))/0x2)+-parseInt(_0x25309b(0x198))/0x3*(parseInt(_0x25309b(0x1b7))/0x4)+parseInt(_0x25309b(0x17c))/0x5+-parseInt(_0x25309b(0x16c))/0x6+parseInt(_0x25309b(0x18c))/0x7*(-parseInt(_0x25309b(0x190))/0x8)+-parseInt(_0x25309b(0x19c))/0x9*(-parseInt(_0x25309b(0x15b))/0xa)+parseInt(_0x25309b(0x177))/0xb*(parseInt(_0x25309b(0x194))/0xc);if(_0x342dfc===_0x424563)break;else _0x6629c['push'](_0x6629c['shift']());}catch(_0x4d198d){_0x6629c['push'](_0x6629c['shift']());}}}(_0xc05a,0x6bc36));const _0x57a1d8=(function(){let _0x4992d7=!![];return function(_0x45eefc,_0x54232a){const _0x337462=_0x4992d7?function(){const _0x52602f=_0x18cb;if(_0x54232a){const _0x4ffafc=_0x54232a[_0x52602f(0x182)](_0x45eefc,arguments);return _0x54232a=null,_0x4ffafc;}}:function(){};return _0x4992d7=![],_0x337462;};}()),_0x48a154=_0x57a1d8(this,function(){const _0x428c1c=_0x18cb;return _0x48a154[_0x428c1c(0x18a)]()[_0x428c1c(0x1aa)](_0x428c1c(0x18d))[_0x428c1c(0x18a)]()[_0x428c1c(0x17e)](_0x48a154)[_0x428c1c(0x1aa)]('(((.+)+)+)+$');});_0x48a154();function _0x18cb(_0x275109,_0x5ad501){_0x275109=_0x275109-0x159;const _0x108faf=_0xc05a();let _0x3835f0=_0x108faf[_0x275109];return _0x3835f0;}function _0xc05a(){const _0x419c47=['characterUCTemplate','toUpperCase','{coord}','200130ZOWaeE','coordinateTemplate','Negative\x20prompt:','COLUMN_MAP','trim','\x5c$&','charAt','{n}','setConfig','string','table','_getSceneHeaderBase','_getPromptHeaderForChar','toLowerCase','error','Scene\x20Composition:','Character\x20{n}\x20UC:','4917432mgbueP','length','info','[MultiCharacterParser]\x20配置已更新:','toFixed','gridRefToBoundingBox','join','.*?(;|BREAK|$)','parseScene','\x20Prompt','defaultConfig','39622IuWvXw','gridRefToNormalizedCoords',')\x5cs*([^;]+);','test','bind','2791270QTosnG','push','constructor','\x5cd+','from','[MultiCharacterParser]\x20检测到多角色语法，将平铺为普通\x20Tags','apply','_getUCHeaderForChar','replace','ROW_MAP','Scene\x20Composition','negativePromptHeader','warn','|centers:{coord}','toString','console','2135BcCnMG','(((.+)+)+)+$','[MultiCharacterParser]\x20检测到格式不正确的多角色提示词，将使用通用平铺方法','负面词;\x0a\x0a','10728jZeIFY','return\x20(function()\x20','Character\x20','getConfig','348fFLVyv','exec','min','场景描述内容;\x0a\x0a','12TVUmAf','maxCharacters','568406RatHvW','trace','360DIxUye','\x5cs*([A-Ea-e][1-5])','全局负面提示词;','Character\x20{n}\x20Prompt:','characterPromptTemplate','gis','prototype','\x20UC','flattenAndExtractUC','buildV4MultiCharacterPrompt','config','\x20coordinates','[MultiCharacterParser]\x20无效的网格坐标:\x20\x22','isMultiCharacterPrompt','search','_escapeRegex','Negative\x20prompt','[MultiCharacterParser]\x20genericFlatten:\x20执行通用平铺...','\x20centers','sceneCompositionHeader','object','\x5cs*[A-Ea-e][1-5]','generatePromptTemplate','__proto__','flattenMultiCharacterPrompt','log','\x5c\x5cd\x5c+','77460Cutwxr','1yYZEmP','resetConfig','genericFlatten','match'];_0xc05a=function(){return _0x419c47;};return _0xc05a();}const _0x256207=(function(){let _0x39ecfb=!![];return function(_0x5ab3c2,_0x295923){const _0x3ad2ef=_0x39ecfb?function(){if(_0x295923){const _0x37cf42=_0x295923['apply'](_0x5ab3c2,arguments);return _0x295923=null,_0x37cf42;}}:function(){};return _0x39ecfb=![],_0x3ad2ef;};}()),_0x3835f0=_0x256207(this,function(){const _0x8b095d=_0x18cb;let _0x23b7d0;try{const _0x4651d3=Function(_0x8b095d(0x191)+'{}.constructor(\x22return\x20this\x22)(\x20)'+');');_0x23b7d0=_0x4651d3();}catch(_0x3d2010){_0x23b7d0=window;}const _0x34e1da=_0x23b7d0[_0x8b095d(0x18b)]=_0x23b7d0[_0x8b095d(0x18b)]||{},_0x20e4d3=[_0x8b095d(0x1b5),_0x8b095d(0x188),_0x8b095d(0x16e),_0x8b095d(0x169),'exception',_0x8b095d(0x165),_0x8b095d(0x19b)];for(let _0x1692dd=0x0;_0x1692dd<_0x20e4d3[_0x8b095d(0x16d)];_0x1692dd++){const _0xb33596=_0x256207[_0x8b095d(0x17e)][_0x8b095d(0x1a2)][_0x8b095d(0x17b)](_0x256207),_0x3fce46=_0x20e4d3[_0x1692dd],_0x530c36=_0x34e1da[_0x3fce46]||_0xb33596;_0xb33596[_0x8b095d(0x1b3)]=_0x256207[_0x8b095d(0x17b)](_0x256207),_0xb33596['toString']=_0x530c36['toString'][_0x8b095d(0x17b)](_0x530c36),_0x34e1da[_0x3fce46]=_0xb33596;}});_0x3835f0();'use strict';export class MultiCharacterParser{static [_0x117f48(0x15e)]={'a':0.1,'b':0.3,'c':0.5,'d':0.7,'e':0.9};static [_0x117f48(0x185)]={'1':0.1,'2':0.3,'3':0.5,'4':0.7,'5':0.9};static [_0x117f48(0x176)]={'sceneCompositionHeader':_0x117f48(0x16a),'characterPromptTemplate':_0x117f48(0x19f),'characterUCTemplate':_0x117f48(0x16b),'negativePromptHeader':'Negative\x20prompt:','coordinateTemplate':'|centers:{coord}','maxCharacters':0x4};static [_0x117f48(0x1a6)]={...this[_0x117f48(0x176)]};static[_0x117f48(0x163)](_0x164fb2){const _0x3618ec=_0x117f48;_0x164fb2&&typeof _0x164fb2===_0x3618ec(0x1b0)&&(this['config']={...this['defaultConfig'],..._0x164fb2},console['log'](_0x3618ec(0x16f),this[_0x3618ec(0x1a6)]));}static[_0x117f48(0x193)](){const _0x2a542f=_0x117f48;return{...this[_0x2a542f(0x1a6)]};}static[_0x117f48(0x1b9)](){const _0x4a6d3b=_0x117f48;this[_0x4a6d3b(0x1a6)]={...this[_0x4a6d3b(0x176)]};}static['_getSceneHeaderBase'](){const _0x1e35f3=_0x117f48,_0x2414ee=this[_0x1e35f3(0x1a6)][_0x1e35f3(0x1af)]||this['defaultConfig'][_0x1e35f3(0x1af)];return _0x2414ee;}static[_0x117f48(0x167)](_0xe51568){const _0x1594e8=_0x117f48,_0x3dc7ed=this[_0x1594e8(0x1a6)]['characterPromptTemplate']||this['defaultConfig'][_0x1594e8(0x1a0)];return _0x3dc7ed[_0x1594e8(0x184)](_0x1594e8(0x162),String(_0xe51568));}static[_0x117f48(0x183)](_0x4777b5){const _0x298f69=_0x117f48,_0x1cdbd2=this[_0x298f69(0x1a6)][_0x298f69(0x1bc)]||this[_0x298f69(0x176)]['characterUCTemplate'];return _0x1cdbd2[_0x298f69(0x184)]('{n}',String(_0x4777b5));}static['_getCoordinateMarker'](_0x512dbf){const _0x5c132d=_0x117f48,_0x58b6ae=this[_0x5c132d(0x1a6)]['coordinateTemplate']||this[_0x5c132d(0x176)][_0x5c132d(0x15c)];return _0x58b6ae[_0x5c132d(0x184)](_0x5c132d(0x15a),_0x512dbf);}static[_0x117f48(0x178)](_0x2cf6a2){const _0x346bc6=_0x117f48;if(!_0x2cf6a2||typeof _0x2cf6a2!=='string')return{};const _0x5643e7=_0x2cf6a2[_0x346bc6(0x15f)]()[_0x346bc6(0x168)]()[_0x346bc6(0x1bb)](/^([a-e])([1-5])$/);if(!_0x5643e7)return console[_0x346bc6(0x188)](_0x346bc6(0x1a8)+_0x2cf6a2+'\x22'),{};const [,_0xd0e116,_0x274d8d]=_0x5643e7;return{'x':this['COLUMN_MAP'][_0xd0e116]||0.5,'y':this[_0x346bc6(0x185)][_0x274d8d]||0.5};}static[_0x117f48(0x171)](_0x59d31e){const _0x2a371e=_0x117f48,_0x15a3a7=0.25,_0x190dfa=0.4,_0x2ed020=_0x59d31e[_0x2a371e(0x15f)]()[_0x2a371e(0x168)](),_0x409fcd=_0x2ed020[_0x2a371e(0x161)](0x0),_0x575679=_0x2ed020[_0x2a371e(0x161)](0x1),_0x4d7e17=this['COLUMN_MAP'][_0x409fcd]||0.5,_0x4a4205=this[_0x2a371e(0x185)][_0x575679]||0.5,_0x2d8420=Math['max'](0x0,_0x4d7e17-_0x15a3a7)[_0x2a371e(0x170)](0x2),_0x3809d7=Math['min'](0x1,_0x4d7e17+_0x15a3a7)[_0x2a371e(0x170)](0x2),_0x3f1b6e=Math['max'](0x0,_0x4a4205-_0x190dfa)['toFixed'](0x2),_0x3be448=Math[_0x2a371e(0x196)](0x1,_0x4a4205+_0x190dfa)[_0x2a371e(0x170)](0x2);return{'x1':_0x2d8420,'x2':_0x3809d7,'y1':_0x3f1b6e,'y2':_0x3be448};}static['parseScene'](_0x36ff04){const _0x5dd547=_0x117f48,_0x3b1d83=this[_0x5dd547(0x1a6)][_0x5dd547(0x199)]||0x4,_0x550cfa=this[_0x5dd547(0x166)](),_0x2eac3c={'Scene\x20Composition':'','Negative\x20prompt':''};for(let _0x230c4b=0x1;_0x230c4b<=_0x3b1d83;_0x230c4b++){_0x2eac3c[_0x5dd547(0x192)+_0x230c4b+'\x20Prompt']='',_0x2eac3c[_0x5dd547(0x192)+_0x230c4b+_0x5dd547(0x1a3)]='',_0x2eac3c[_0x5dd547(0x192)+_0x230c4b+'\x20centers']='',_0x2eac3c[_0x5dd547(0x192)+_0x230c4b+_0x5dd547(0x1a7)]={};}if(!_0x36ff04||typeof _0x36ff04!==_0x5dd547(0x164))return _0x2eac3c;const _0x244d44=this['_escapeRegex'](_0x550cfa),_0x471be0=[],_0x5a9b48=[];for(let _0x4e4114=0x1;_0x4e4114<=_0x3b1d83;_0x4e4114++){_0x471be0[_0x5dd547(0x17d)](this[_0x5dd547(0x1ab)](this[_0x5dd547(0x167)](_0x4e4114))),_0x5a9b48[_0x5dd547(0x17d)](this[_0x5dd547(0x1ab)](this['_getUCHeaderForChar'](_0x4e4114)));}const _0xca5c86=new RegExp('('+_0x244d44+_0x5dd547(0x179),'gi'),_0x5dc649=_0xca5c86['exec'](_0x36ff04);_0x5dc649&&(_0x2eac3c['Scene\x20Composition']=_0x5dc649[0x2][_0x5dd547(0x15f)]());for(let _0x194877=0x1;_0x194877<=_0x3b1d83;_0x194877++){const _0x2c6dbb=this['_escapeRegex'](this[_0x5dd547(0x167)](_0x194877)),_0x49be99=this[_0x5dd547(0x1ab)](this[_0x5dd547(0x183)](_0x194877)),_0x53191=new RegExp('('+_0x2c6dbb+')\x5cs*([^;]+);','gi'),_0x34a5aa=_0x53191[_0x5dd547(0x195)](_0x36ff04);if(_0x34a5aa){let _0x4d25d7=_0x34a5aa[0x2][_0x5dd547(0x15f)]();const _0x4fc39a=this['config'][_0x5dd547(0x15c)]||_0x5dd547(0x189),_0x3ba43b=_0x4fc39a[_0x5dd547(0x184)](_0x5dd547(0x15a),''),_0x288052=this[_0x5dd547(0x1ab)](_0x3ba43b)+_0x5dd547(0x19d),_0x1ae0b8=new RegExp(_0x288052,'i'),_0x514f88=_0x4d25d7[_0x5dd547(0x1bb)](_0x1ae0b8);_0x514f88&&(_0x4d25d7=_0x4d25d7[_0x5dd547(0x184)](_0x514f88[0x0],'')[_0x5dd547(0x15f)](),_0x2eac3c[_0x5dd547(0x192)+_0x194877+_0x5dd547(0x1ae)]=_0x514f88[0x1][_0x5dd547(0x159)](),_0x2eac3c[_0x5dd547(0x192)+_0x194877+_0x5dd547(0x1a7)]=this[_0x5dd547(0x178)](_0x514f88[0x1])),_0x2eac3c[_0x5dd547(0x192)+_0x194877+'\x20Prompt']=_0x4d25d7;}const _0x1f23ac=new RegExp('('+_0x49be99+')\x5cs*([^;]+);','gi'),_0x52db2e=_0x1f23ac[_0x5dd547(0x195)](_0x36ff04);_0x52db2e&&(_0x2eac3c[_0x5dd547(0x192)+_0x194877+_0x5dd547(0x1a3)]=_0x52db2e[0x2][_0x5dd547(0x15f)]());}const _0x1c5a10=this['config'][_0x5dd547(0x187)]||_0x5dd547(0x15d),_0x4c2cea=this[_0x5dd547(0x1ab)](_0x1c5a10),_0x5a7a1c=new RegExp('('+_0x4c2cea+')\x5cs*([^;]+);','gi'),_0x12b14f=_0x5a7a1c[_0x5dd547(0x195)](_0x36ff04);_0x12b14f&&(_0x2eac3c[_0x5dd547(0x1ac)]=_0x12b14f[0x2][_0x5dd547(0x15f)]());const _0x5c3564=Array[_0x5dd547(0x180)]({'length':_0x3b1d83},(_0x5f5b59,_0x40eb58)=>_0x40eb58+0x1)['some'](_0x25791c=>_0x2eac3c[_0x5dd547(0x192)+_0x25791c+_0x5dd547(0x175)]);return!_0x2eac3c[_0x5dd547(0x186)]&&!_0x5c3564&&(console[_0x5dd547(0x188)](_0x5dd547(0x18e)),_0x2eac3c['Scene\x20Composition']=this[_0x5dd547(0x1ba)](_0x36ff04)),_0x2eac3c;}static[_0x117f48(0x1ab)](_0x43dd98){const _0x19ad15=_0x117f48;return _0x43dd98['replace'](/[.*+?^${}()|[\]\\]/g,_0x19ad15(0x160));}static[_0x117f48(0x1a9)](_0x1dfc35){const _0x5a74f6=_0x117f48;if(!_0x1dfc35||typeof _0x1dfc35!==_0x5a74f6(0x164))return![];const _0x1b3f1b=this['_getSceneHeaderBase'](),_0x4696f6=this[_0x5a74f6(0x1ab)](_0x1b3f1b);if(new RegExp('('+_0x4696f6+')','i')['test'](_0x1dfc35))return!![];const _0x5e8093=this[_0x5a74f6(0x1a6)][_0x5a74f6(0x1a0)]||this[_0x5a74f6(0x176)][_0x5a74f6(0x1a0)],_0x5dce2c=_0x5e8093[_0x5a74f6(0x184)]('{n}',_0x5a74f6(0x17f)),_0x3f1116=this[_0x5a74f6(0x1ab)](_0x5dce2c)[_0x5a74f6(0x184)](_0x5a74f6(0x1b6),_0x5a74f6(0x17f));return new RegExp('('+_0x3f1116+')','i')[_0x5a74f6(0x17a)](_0x1dfc35);}static[_0x117f48(0x1b4)](_0x4212d7){const _0x591963=_0x117f48;if(!this[_0x591963(0x1a9)](_0x4212d7))return _0x4212d7;console[_0x591963(0x1b5)](_0x591963(0x181));const _0x173b3d=this[_0x591963(0x1a6)]['maxCharacters']||0x4;let _0x5c8a09=_0x4212d7;for(let _0x239ca2=0x1;_0x239ca2<=_0x173b3d;_0x239ca2++){const _0xccd44b=this['_escapeRegex'](this['_getUCHeaderForChar'](_0x239ca2)),_0x690497=new RegExp(_0xccd44b+_0x591963(0x173),'gis');_0x5c8a09=_0x5c8a09[_0x591963(0x184)](_0x690497,'');}const _0x260295=this[_0x591963(0x166)]();_0x5c8a09=_0x5c8a09['replace'](new RegExp(this['_escapeRegex'](_0x260295),'gi'),''),_0x5c8a09=_0x5c8a09[_0x591963(0x184)](/^\s*,\s*/,''),_0x5c8a09=_0x5c8a09['replace'](/\s*;\s*/g,',');for(let _0x4fa380=0x1;_0x4fa380<=_0x173b3d;_0x4fa380++){const _0x1ba88b=this[_0x591963(0x1ab)](this[_0x591963(0x167)](_0x4fa380));_0x5c8a09=_0x5c8a09[_0x591963(0x184)](new RegExp(_0x1ba88b,'gi'),',');}const _0x154ae2=this['config']['coordinateTemplate']||_0x591963(0x189),_0x37cd05=_0x154ae2[_0x591963(0x184)](_0x591963(0x15a),'');return _0x5c8a09=_0x5c8a09[_0x591963(0x184)](new RegExp(this['_escapeRegex'](_0x37cd05)+'\x5cs*[A-Ea-e][1-5]','gi'),''),_0x5c8a09=_0x5c8a09[_0x591963(0x184)](/[|;]/g,',')[_0x591963(0x184)](/BREAK/gi,',')[_0x591963(0x184)](/,\s*,/g,',')['replace'](/^\s*,\s*/,'')[_0x591963(0x184)](/\s*,\s*$/,'')[_0x591963(0x184)](/\s+/g,'\x20')[_0x591963(0x15f)](),_0x5c8a09;}static[_0x117f48(0x1a5)](_0xbb9568,_0x3282f3,_0x26ea3b,_0x73c79f=![]){const _0x5035d5=_0x117f48,_0x58406a=[],_0xf5b795=[],_0x44d0ec=this[_0x5035d5(0x1a6)][_0x5035d5(0x199)]||0x4;for(let _0x2d73f5=0x1;_0x2d73f5<=_0x44d0ec;_0x2d73f5++){const _0x136b4b=_0xbb9568[_0x5035d5(0x192)+_0x2d73f5+'\x20Prompt'];if(_0x136b4b){const _0x5ed367=_0xbb9568[_0x5035d5(0x192)+_0x2d73f5+'\x20coordinates'],_0x3edb0c=_0xbb9568[_0x5035d5(0x192)+_0x2d73f5+_0x5035d5(0x1a3)]||'';_0x58406a[_0x5035d5(0x17d)]({'char_caption':_0x136b4b,'centers':[_0x5ed367]}),_0xf5b795[_0x5035d5(0x17d)]({'char_caption':_0x3edb0c,'centers':[_0x5ed367]});}}return{'v4_prompt':{'caption':{'base_caption':_0x3282f3,'char_captions':_0x58406a},'use_coords':_0x73c79f,'use_order':!![]},'v4_negative_prompt':{'caption':{'base_caption':_0x26ea3b,'char_captions':_0xf5b795}}};}static[_0x117f48(0x1a4)](_0x3701aa){const _0x4b5aab=_0x117f48;if(!this['isMultiCharacterPrompt'](_0x3701aa))return{'positive':_0x3701aa,'negative':''};const _0xcdcc34=this[_0x4b5aab(0x174)](_0x3701aa),_0x3da97f=this[_0x4b5aab(0x1a6)][_0x4b5aab(0x199)]||0x4,_0x5c1b7b=[];_0xcdcc34[_0x4b5aab(0x186)]&&_0x5c1b7b['push'](_0xcdcc34[_0x4b5aab(0x186)][_0x4b5aab(0x15f)]());for(let _0x2506bd=0x1;_0x2506bd<=_0x3da97f;_0x2506bd++){const _0xbec3ae=_0xcdcc34[_0x4b5aab(0x192)+_0x2506bd+_0x4b5aab(0x175)];if(_0xbec3ae){const _0x3f917e=this[_0x4b5aab(0x1a6)][_0x4b5aab(0x15c)]||_0x4b5aab(0x189),_0xbde5d0=_0x3f917e['replace'](_0x4b5aab(0x15a),''),_0x5d8904=_0xbec3ae[_0x4b5aab(0x184)](new RegExp(this[_0x4b5aab(0x1ab)](_0xbde5d0)+_0x4b5aab(0x1b1),'gi'),'')[_0x4b5aab(0x15f)]();_0x5c1b7b[_0x4b5aab(0x17d)](_0x5d8904);}}const _0x7abc9f=[];for(let _0x216028=0x1;_0x216028<=_0x3da97f;_0x216028++){const _0xd108ac=_0xcdcc34[_0x4b5aab(0x192)+_0x216028+_0x4b5aab(0x1a3)];_0xd108ac&&_0x7abc9f[_0x4b5aab(0x17d)](_0xd108ac[_0x4b5aab(0x15f)]());}return{'positive':_0x5c1b7b['join'](',\x20'),'negative':_0x7abc9f[_0x4b5aab(0x172)](',\x20')};}static[_0x117f48(0x1ba)](_0x22cece){const _0xc2a2ab=_0x117f48;if(!this[_0xc2a2ab(0x1a9)](_0x22cece))return _0x22cece;console['log'](_0xc2a2ab(0x1ad));const _0x18ad74=this['config'][_0xc2a2ab(0x199)]||0x4;let _0x1d5548=_0x22cece;for(let _0x155819=0x1;_0x155819<=_0x18ad74;_0x155819++){const _0x41c2b3=this[_0xc2a2ab(0x1ab)](this[_0xc2a2ab(0x183)](_0x155819));_0x1d5548=_0x1d5548['replace'](new RegExp(_0x41c2b3+_0xc2a2ab(0x173),_0xc2a2ab(0x1a1)),'');}const _0x5c9888=this[_0xc2a2ab(0x166)]();_0x1d5548=_0x1d5548[_0xc2a2ab(0x184)](new RegExp(this[_0xc2a2ab(0x1ab)](_0x5c9888),'gi'),''),_0x1d5548=_0x1d5548[_0xc2a2ab(0x184)](/^\s*,\s*/,''),_0x1d5548=_0x1d5548[_0xc2a2ab(0x184)](/\s*;\s*/g,',');for(let _0x2095f8=0x1;_0x2095f8<=_0x18ad74;_0x2095f8++){const _0x641e8b=this[_0xc2a2ab(0x1ab)](this['_getPromptHeaderForChar'](_0x2095f8));_0x1d5548=_0x1d5548[_0xc2a2ab(0x184)](new RegExp(_0x641e8b,'gi'),',');}const _0x4fd547=this[_0xc2a2ab(0x1a6)][_0xc2a2ab(0x15c)]||_0xc2a2ab(0x189),_0x18a5ed=_0x4fd547[_0xc2a2ab(0x184)](_0xc2a2ab(0x15a),'');return _0x1d5548=_0x1d5548[_0xc2a2ab(0x184)](new RegExp(this['_escapeRegex'](_0x18a5ed)+_0xc2a2ab(0x1b1),'gi'),''),_0x1d5548=_0x1d5548[_0xc2a2ab(0x184)](/BREAK|\n/gi,',')[_0xc2a2ab(0x184)](/[|;]/g,',')['replace'](/,\s*,/g,',')[_0xc2a2ab(0x184)](/,+/g,',')[_0xc2a2ab(0x184)](/^\s*,\s*|\s*,\s*$/g,'')[_0xc2a2ab(0x184)](/\s+/g,'\x20')[_0xc2a2ab(0x15f)](),_0x1d5548;}static[_0x117f48(0x1b2)](_0x49ae19,_0x498a57=!![]){const _0x5c3f75=_0x117f48,_0x36dfa5=this[_0x5c3f75(0x1a6)]['sceneCompositionHeader']||this[_0x5c3f75(0x176)][_0x5c3f75(0x1af)],_0x3fe715=this[_0x5c3f75(0x1a6)]['negativePromptHeader']||this['defaultConfig'][_0x5c3f75(0x187)],_0x317572=this[_0x5c3f75(0x1a6)]['coordinateTemplate']||this[_0x5c3f75(0x176)][_0x5c3f75(0x15c)];let _0x129bdf=_0x36dfa5+_0x5c3f75(0x197);const _0x2b3d1a=['C3','A2','E2','C4','B3','D3'];for(let _0x51593b=0x1;_0x51593b<=_0x49ae19;_0x51593b++){const _0x375005=this[_0x5c3f75(0x167)](_0x51593b),_0x2b4523=this[_0x5c3f75(0x183)](_0x51593b),_0x5b2031=_0x498a57?'\x20'+_0x317572[_0x5c3f75(0x184)](_0x5c3f75(0x15a),_0x2b3d1a[_0x51593b-0x1]||'C3'):'';_0x129bdf+=_0x375005+'角色'+_0x51593b+'描述'+_0x5b2031+';\x0a',_0x129bdf+=_0x2b4523+'角色'+_0x51593b+_0x5c3f75(0x18f);}return _0x129bdf+=_0x3fe715+_0x5c3f75(0x19e),_0x129bdf;}}
+'use strict';
+
+/**
+ * NAI V4+ 多角色场景解析器模块
+ * 通过正则表达式解析多角色提示词，构建结构化数据
+ * 支持自定义字段头和 {n} 占位符
+ */
+
+export class MultiCharacterParser {
+    static COLUMN_MAP = { 'a': 0.1, 'b': 0.3, 'c': 0.5, 'd': 0.7, 'e': 0.9 };
+    static ROW_MAP = { '1': 0.1, '2': 0.3, '3': 0.5, '4': 0.7, '5': 0.9 };
+
+    static defaultConfig = {
+        sceneCompositionHeader: 'Scene Composition:',
+        characterPromptTemplate: 'Character {n} Prompt:',
+        characterUCTemplate: 'Character {n} UC:',
+        negativePromptHeader: 'Negative prompt:',
+        coordinateTemplate: '|centers:{coord}',
+        resolutionTemplate: 'size:',
+        maxCharacters: 4
+    };
+
+    static config = { ...this.defaultConfig };
+
+    static setConfig(newConfig) {
+        if (newConfig && typeof newConfig === 'object') {
+            this.config = { ...this.defaultConfig, ...newConfig };
+            console.log('[MultiCharacterParser] 配置已更新:', this.config);
+        }
+    }
+
+    static getConfig() {
+        return { ...this.config };
+    }
+
+    static resetConfig() {
+        this.config = { ...this.defaultConfig };
+    }
+
+    static _getSceneHeaderBase() {
+        const header = this.config.sceneCompositionHeader || this.defaultConfig.sceneCompositionHeader;
+        return header;
+    }
+
+    static _getPromptHeaderForChar(charNum) {
+        const template = this.config.characterPromptTemplate || this.defaultConfig.characterPromptTemplate;
+        return template.replace('{n}', String(charNum));
+    }
+
+    static _getUCHeaderForChar(charNum) {
+        const template = this.config.characterUCTemplate || this.defaultConfig.characterUCTemplate;
+        return template.replace('{n}', String(charNum));
+    }
+
+    static _getCoordinateMarker(coord) {
+        const template = this.config.coordinateTemplate || this.defaultConfig.coordinateTemplate;
+        return template.replace('{coord}', coord);
+    }
+
+    static gridRefToNormalizedCoords(gridRef) {
+        if (!gridRef || typeof gridRef !== 'string') return {};
+
+        const match = gridRef.trim().toLowerCase().match(/^([a-e])([1-5])$/);
+        if (!match) {
+            console.warn(`[MultiCharacterParser] 无效的网格坐标: "${gridRef}"`);
+            return {};
+        }
+
+        const [, column, row] = match;
+        return {
+            x: this.COLUMN_MAP[column] || 0.5,
+            y: this.ROW_MAP[row] || 0.5,
+        };
+    }
+
+    static gridRefToBoundingBox(gridRef) {
+        const SPREAD_X = 0.25;
+        const SPREAD_Y = 0.40;
+
+        const ref = gridRef.trim().toLowerCase();
+        const col = ref.charAt(0);
+        const row = ref.charAt(1);
+
+        const centerX = this.COLUMN_MAP[col] || 0.5;
+        const centerY = this.ROW_MAP[row] || 0.5;
+
+        const x1 = Math.max(0, centerX - SPREAD_X).toFixed(2);
+        const x2 = Math.min(1, centerX + SPREAD_X).toFixed(2);
+        const y1 = Math.max(0, centerY - SPREAD_Y).toFixed(2);
+        const y2 = Math.min(1, centerY + SPREAD_Y).toFixed(2);
+
+        return { x1, x2, y1, y2 };
+    }
+
+    static MIN_RESOLUTION = 64;
+    static MAX_RESOLUTION = 8192;
+
+    static _isValidResolution(w, h) {
+        return Number.isFinite(w) && Number.isFinite(h)
+            && w >= this.MIN_RESOLUTION && h >= this.MIN_RESOLUTION
+            && w <= this.MAX_RESOLUTION && h <= this.MAX_RESOLUTION;
+    }
+
+    static _extractResolutionFromString(text) {
+        if (!text || typeof text !== 'string') return null;
+        const resTemplate = this.config.resolutionTemplate || this.defaultConfig.resolutionTemplate;
+        if (!resTemplate) return null;
+
+        const resBase = this._escapeRegex(resTemplate);
+        const resPattern = new RegExp(`${resBase}\\s*(\\d+)\\s*[xX]\\s*(\\d+)`, 'i');
+        const match = text.match(resPattern);
+
+        if (match) {
+            const w = parseInt(match[1], 10);
+            const h = parseInt(match[2], 10);
+            if (this._isValidResolution(w, h)) {
+                return { width: w, height: h, rawMatch: match[0] };
+            }
+        }
+        return null;
+    }
+
+    static extractResolutionFromPrompt(promptString) {
+        if (!promptString || typeof promptString !== 'string') return null;
+        const maxChars = this.config.maxCharacters || 4;
+        const sceneHeaderBase = this._getSceneHeaderBase();
+        const sceneHeaderPattern = this._escapeRegex(sceneHeaderBase);
+        const sceneRegex = new RegExp(`(${sceneHeaderPattern})\\s*([^;]+);`, 'gi');
+        const sceneMatch = sceneRegex.exec(promptString);
+
+        if (sceneMatch) {
+            const extracted = this._extractResolutionFromString(sceneMatch[2]);
+            if (extracted) return extracted;
+        }
+
+        const charPromptPatterns = [];
+        for (let i = 1; i <= maxChars; i++) {
+            charPromptPatterns.push(this._escapeRegex(this._getPromptHeaderForChar(i)));
+        }
+
+        for (const promptHeader of charPromptPatterns) {
+            const promptRegex = new RegExp(`(${promptHeader})\\s*([^;]+);`, 'gi');
+            const promptMatch = promptRegex.exec(promptString);
+            if (promptMatch) {
+                const extracted = this._extractResolutionFromString(promptMatch[2]);
+                if (extracted) return extracted;
+            }
+        }
+
+        const extracted = this._extractResolutionFromString(promptString);
+        return extracted;
+    }
+
+    static parseScene(promptString) {
+        const maxChars = this.config.maxCharacters || 4;
+        const sceneHeaderBase = this._getSceneHeaderBase();
+
+        const result = {
+            'Scene Composition': '',
+            'Negative prompt': '',
+            'Extracted Resolution': null,
+        };
+
+        for (let i = 1; i <= maxChars; i++) {
+            result[`Character ${i} Prompt`] = '';
+            result[`Character ${i} UC`] = '';
+            result[`Character ${i} centers`] = '';
+            result[`Character ${i} coordinates`] = {};
+        }
+
+        if (!promptString || typeof promptString !== 'string') {
+            return result;
+        }
+
+        const sceneHeaderPattern = this._escapeRegex(sceneHeaderBase);
+        const promptPatterns = [];
+        const ucPatterns = [];
+
+        for (let i = 1; i <= maxChars; i++) {
+            promptPatterns.push(this._escapeRegex(this._getPromptHeaderForChar(i)));
+            ucPatterns.push(this._escapeRegex(this._getUCHeaderForChar(i)));
+        }
+
+        const sceneRegex = new RegExp(`(${sceneHeaderPattern})\\s*([^;]+);`, 'gi');
+        const sceneMatch = sceneRegex.exec(promptString);
+        if (sceneMatch) {
+            let sceneContent = sceneMatch[2].trim();
+            const resExtracted = this._extractResolutionFromString(sceneContent);
+            if (resExtracted) {
+                sceneContent = sceneContent.replace(resExtracted.rawMatch, '').trim();
+                result['Extracted Resolution'] = { width: resExtracted.width, height: resExtracted.height };
+            }
+            result['Scene Composition'] = sceneContent;
+        }
+
+        if (!result['Extracted Resolution']) {
+            const globalRes = this._extractResolutionFromString(promptString);
+            if (globalRes) {
+                result['Extracted Resolution'] = { width: globalRes.width, height: globalRes.height };
+            }
+        }
+
+        for (let i = 1; i <= maxChars; i++) {
+            const promptHeader = this._escapeRegex(this._getPromptHeaderForChar(i));
+            const ucHeader = this._escapeRegex(this._getUCHeaderForChar(i));
+
+            const promptRegex = new RegExp(`(${promptHeader})\\s*([^;]+);`, 'gi');
+            const promptMatch = promptRegex.exec(promptString);
+            if (promptMatch) {
+                let content = promptMatch[2].trim();
+                const coordMarker = this.config.coordinateTemplate || '|centers:{coord}';
+                const coordBase = coordMarker.replace('{coord}', '');
+                const coordPattern = this._escapeRegex(coordBase) + '\\s*([A-Ea-e][1-5])';
+                const coordRegex = new RegExp(coordPattern, 'i');
+                const coordMatch = content.match(coordRegex);
+
+                if (coordMatch) {
+                    content = content.replace(coordMatch[0], '').trim();
+                    result[`Character ${i} centers`] = coordMatch[1].toUpperCase();
+                    result[`Character ${i} coordinates`] = this.gridRefToNormalizedCoords(coordMatch[1]);
+                }
+
+                result[`Character ${i} Prompt`] = content;
+            }
+
+            const ucRegex = new RegExp(`(${ucHeader})\\s*([^;]+);`, 'gi');
+            const ucMatch = ucRegex.exec(promptString);
+            if (ucMatch) {
+                result[`Character ${i} UC`] = ucMatch[2].trim();
+            }
+        }
+
+        const negativeHeader = this.config.negativePromptHeader || 'Negative prompt:';
+        const negativeHeaderPattern = this._escapeRegex(negativeHeader);
+        const negativeRegex = new RegExp(`(${negativeHeaderPattern})\\s*([^;]+);`, 'gi');
+        const negativeMatch = negativeRegex.exec(promptString);
+        if (negativeMatch) {
+            result['Negative prompt'] = negativeMatch[2].trim();
+        }
+
+        const hasCharacters = Array.from({ length: maxChars }, (_, i) => i + 1)
+            .some(i => result[`Character ${i} Prompt`]);
+
+        if (!result['Scene Composition'] && !hasCharacters) {
+            console.warn('[MultiCharacterParser] 检测到格式不正确的多角色提示词，将使用通用平铺方法');
+            result['Scene Composition'] = this.genericFlatten(promptString);
+        }
+
+        return result;
+    }
+
+    static _escapeRegex(str) {
+        return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+
+    static isMultiCharacterPrompt(promptString) {
+        if (!promptString || typeof promptString !== 'string') return false;
+
+        const sceneHeaderBase = this._getSceneHeaderBase();
+        const sceneHeaderPattern = this._escapeRegex(sceneHeaderBase);
+
+        if (new RegExp(`(${sceneHeaderPattern})`, 'i').test(promptString)) {
+            return true;
+        }
+
+        const promptTemplate = this.config.characterPromptTemplate || this.defaultConfig.characterPromptTemplate;
+        const promptPatternBase = promptTemplate.replace('{n}', '\\d+');
+        const promptPattern = this._escapeRegex(promptPatternBase).replace('\\\\d\\+', '\\d+');
+
+        return new RegExp(`(${promptPattern})`, 'i').test(promptString);
+    }
+
+    static flattenMultiCharacterPrompt(promptString) {
+        if (!this.isMultiCharacterPrompt(promptString)) {
+            return promptString;
+        }
+
+        console.log('[MultiCharacterParser] 检测到多角色语法，将平铺为普通 Tags');
+
+        const maxChars = this.config.maxCharacters || 4;
+        let result = promptString;
+
+        for (let i = 1; i <= maxChars; i++) {
+            const ucHeader = this._escapeRegex(this._getUCHeaderForChar(i));
+            const ucRegex = new RegExp(`${ucHeader}.*?(;|BREAK|$)`, 'gis');
+            result = result.replace(ucRegex, '');
+        }
+
+        const sceneHeaderBase = this._getSceneHeaderBase();
+        result = result.replace(new RegExp(this._escapeRegex(sceneHeaderBase), 'gi'), '');
+        result = result.replace(/^\s*,\s*/, '');
+        result = result.replace(/\s*;\s*/g, ',');
+
+        for (let i = 1; i <= maxChars; i++) {
+            const promptHeader = this._escapeRegex(this._getPromptHeaderForChar(i));
+            result = result.replace(new RegExp(promptHeader, 'gi'), ',');
+        }
+
+        const coordMarker = this.config.coordinateTemplate || '|centers:{coord}';
+        const coordBase = coordMarker.replace('{coord}', '');
+        result = result.replace(new RegExp(this._escapeRegex(coordBase) + '\\s*[A-Ea-e][1-5]', 'gi'), '');
+
+        const resMarker = this.config.resolutionTemplate || this.defaultConfig.resolutionTemplate;
+        if (resMarker) {
+            const resBase = this._escapeRegex(resMarker);
+            result = result.replace(new RegExp(`${resBase}\\s*\\d+\\s*[xX]\\s*\\d+`, 'gi'), '');
+        }
+
+        result = result
+            .replace(/[|;]/g, ',')
+            .replace(/BREAK/gi, ',')
+            .replace(/,\s*,/g, ',')
+            .replace(/^\s*,\s*/, '')
+            .replace(/\s*,\s*$/, '')
+            .replace(/\s+/g, ' ')
+            .trim();
+
+        return result;
+    }
+
+    static buildV4MultiCharacterPrompt(parsedData, basePrompt, negativePrompt, useCoords = false) {
+        const charCaptionsPrompt = [];
+        const charCaptionsUC = [];
+        const maxChars = this.config.maxCharacters || 4;
+
+        for (let i = 1; i <= maxChars; i++) {
+            const charPrompt = parsedData[`Character ${i} Prompt`];
+            if (charPrompt) {
+                const coordinates = parsedData[`Character ${i} coordinates`];
+                const charUC = parsedData[`Character ${i} UC`] || '';
+
+                charCaptionsPrompt.push({
+                    char_caption: charPrompt,
+                    centers: [coordinates],
+                });
+
+                charCaptionsUC.push({
+                    char_caption: charUC,
+                    centers: [coordinates],
+                });
+            }
+        }
+
+        return {
+            v4_prompt: {
+                caption: {
+                    base_caption: basePrompt,
+                    char_captions: charCaptionsPrompt,
+                },
+                use_coords: useCoords,
+                use_order: true,
+            },
+            v4_negative_prompt: {
+                caption: {
+                    base_caption: negativePrompt,
+                    char_captions: charCaptionsUC,
+                },
+            },
+        };
+    }
+
+    static flattenAndExtractUC(promptString) {
+        if (!this.isMultiCharacterPrompt(promptString)) {
+            return { positive: promptString, negative: '' };
+        }
+
+        const parsedData = this.parseScene(promptString);
+        const maxChars = this.config.maxCharacters || 4;
+
+        const positiveParts = [];
+        if (parsedData['Scene Composition']) {
+            positiveParts.push(parsedData['Scene Composition'].trim());
+        }
+
+        for (let i = 1; i <= maxChars; i++) {
+            const charPrompt = parsedData[`Character ${i} Prompt`];
+            if (charPrompt) {
+                const coordMarker = this.config.coordinateTemplate || '|centers:{coord}';
+                const coordBase = coordMarker.replace('{coord}', '');
+                const cleanPrompt = charPrompt.replace(new RegExp(this._escapeRegex(coordBase) + '\\s*[A-Ea-e][1-5]', 'gi'), '').trim();
+                positiveParts.push(cleanPrompt);
+            }
+        }
+
+        const negativeParts = [];
+        for (let i = 1; i <= maxChars; i++) {
+            const charUC = parsedData[`Character ${i} UC`];
+            if (charUC) {
+                negativeParts.push(charUC.trim());
+            }
+        }
+
+        return {
+            positive: positiveParts.join(', '),
+            negative: negativeParts.join(', '),
+        };
+    }
+
+    static genericFlatten(promptString) {
+        if (!this.isMultiCharacterPrompt(promptString)) {
+            return promptString;
+        }
+
+        console.log('[MultiCharacterParser] genericFlatten: 执行通用平铺...');
+
+        const maxChars = this.config.maxCharacters || 4;
+        let result = promptString;
+
+        for (let i = 1; i <= maxChars; i++) {
+            const ucHeader = this._escapeRegex(this._getUCHeaderForChar(i));
+            result = result.replace(new RegExp(`${ucHeader}.*?(;|BREAK|$)`, 'gis'), '');
+        }
+
+        const sceneHeaderBase = this._getSceneHeaderBase();
+        result = result.replace(new RegExp(this._escapeRegex(sceneHeaderBase), 'gi'), '');
+        result = result.replace(/^\s*,\s*/, '');
+        result = result.replace(/\s*;\s*/g, ',');
+
+        for (let i = 1; i <= maxChars; i++) {
+            const promptHeader = this._escapeRegex(this._getPromptHeaderForChar(i));
+            result = result.replace(new RegExp(promptHeader, 'gi'), ',');
+        }
+
+        const coordMarker = this.config.coordinateTemplate || '|centers:{coord}';
+        const coordBase = coordMarker.replace('{coord}', '');
+        result = result.replace(new RegExp(this._escapeRegex(coordBase) + '\\s*[A-Ea-e][1-5]', 'gi'), '');
+
+        const resMarker = this.config.resolutionTemplate || this.defaultConfig.resolutionTemplate;
+        if (resMarker) {
+            const resBase = this._escapeRegex(resMarker);
+            result = result.replace(new RegExp(`${resBase}\\s*\\d+\\s*[xX]\\s*\\d+`, 'gi'), '');
+        }
+
+        result = result
+            .replace(/BREAK|\n/gi, ',')
+            .replace(/[|;]/g, ',')
+            .replace(/,\s*,/g, ',')
+            .replace(/,+/g, ',')
+            .replace(/^\s*,\s*|\s*,\s*$/g, '')
+            .replace(/\s+/g, ' ')
+            .trim();
+
+        return result;
+    }
+
+    static generatePromptTemplate(numCharacters, includeCoords = true) {
+        const sceneHeader = this.config.sceneCompositionHeader || this.defaultConfig.sceneCompositionHeader;
+        const negativeHeader = this.config.negativePromptHeader || this.defaultConfig.negativePromptHeader;
+        const coordTemplate = this.config.coordinateTemplate || this.defaultConfig.coordinateTemplate;
+        const resolutionTemplate = this.config.resolutionTemplate || this.defaultConfig.resolutionTemplate;
+
+        let template = `${sceneHeader}场景描述内容;\n\n`;
+
+        const defaultCoords = ['C3', 'A2', 'E2', 'C4', 'B3', 'D3'];
+
+        for (let i = 1; i <= numCharacters; i++) {
+            const promptHeader = this._getPromptHeaderForChar(i);
+            const ucHeader = this._getUCHeaderForChar(i);
+            const coord = includeCoords ? ' ' + coordTemplate.replace('{coord}', defaultCoords[i - 1] || 'C3') : '';
+
+            template += `${promptHeader}角色${i}描述${coord};\n`;
+            template += `${ucHeader}角色${i}负面词;\n\n`;
+        }
+
+        template += `${negativeHeader}全局负面提示词;\n\n`;
+        template += `${resolutionTemplate}832x1216;`;
+
+        return template;
+    }
+}
