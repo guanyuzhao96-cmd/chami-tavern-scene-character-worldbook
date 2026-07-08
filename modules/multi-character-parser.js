@@ -60,7 +60,12 @@ export class MultiCharacterParser {
     static gridRefToNormalizedCoords(gridRef) {
         if (!gridRef || typeof gridRef !== 'string') return {};
 
-        const match = gridRef.trim().toLowerCase().match(/^([a-e])([1-5])$/);
+        const trimmed = gridRef.trim().toLowerCase();
+        if (trimmed === 'auto') {
+            return { x: 0.5, y: 0.5 };
+        }
+
+        const match = trimmed.match(/^([a-e])([1-5])$/);
         if (!match) {
             console.warn(`[MultiCharacterParser] 无效的网格坐标: "${gridRef}"`);
             return {};
@@ -159,6 +164,7 @@ export class MultiCharacterParser {
             'Scene Composition': '',
             'Negative prompt': '',
             'Extracted Resolution': null,
+            'Has Auto Coord': false,
         };
 
         for (let i = 1; i <= maxChars; i++) {
@@ -210,13 +216,17 @@ export class MultiCharacterParser {
                 let content = promptMatch[2].trim();
                 const coordMarker = this.config.coordinateTemplate || '|centers:{coord}';
                 const coordBase = coordMarker.replace('{coord}', '');
-                const coordPattern = this._escapeRegex(coordBase) + '\\s*([A-Ea-e][1-5])';
+                const coordPattern = this._escapeRegex(coordBase) + '\\s*([A-Ea-e][1-5]|auto)';
                 const coordRegex = new RegExp(coordPattern, 'i');
                 const coordMatch = content.match(coordRegex);
 
                 if (coordMatch) {
                     content = content.replace(coordMatch[0], '').trim();
-                    result[`Character ${i} centers`] = coordMatch[1].toUpperCase();
+                    const coordValue = coordMatch[1].trim().toLowerCase();
+                    result[`Character ${i} centers`] = coordValue === 'auto' ? 'AUTO' : coordMatch[1].toUpperCase();
+                    if (coordValue === 'auto') {
+                        result['Has Auto Coord'] = true;
+                    }
                     result[`Character ${i} coordinates`] = this.gridRefToNormalizedCoords(coordMatch[1]);
                 }
 
@@ -298,7 +308,7 @@ export class MultiCharacterParser {
 
         const coordMarker = this.config.coordinateTemplate || '|centers:{coord}';
         const coordBase = coordMarker.replace('{coord}', '');
-        result = result.replace(new RegExp(this._escapeRegex(coordBase) + '\\s*[A-Ea-e][1-5]', 'gi'), '');
+        result = result.replace(new RegExp(this._escapeRegex(coordBase) + '\\s*([A-Ea-e][1-5]|auto)', 'gi'), '');
 
         const resMarker = this.config.resolutionTemplate || this.defaultConfig.resolutionTemplate;
         if (resMarker) {
@@ -323,10 +333,14 @@ export class MultiCharacterParser {
         const charCaptionsUC = [];
         const maxChars = this.config.maxCharacters || 4;
 
+        const hasAutoCoord = parsedData['Has Auto Coord'] === true;
+        const finalUseCoords = hasAutoCoord ? false : useCoords;
+        const defaultCenter = { x: 0.5, y: 0.5 };
+
         for (let i = 1; i <= maxChars; i++) {
             const charPrompt = parsedData[`Character ${i} Prompt`];
             if (charPrompt) {
-                const coordinates = parsedData[`Character ${i} coordinates`];
+                const coordinates = hasAutoCoord ? defaultCenter : (parsedData[`Character ${i} coordinates`] || defaultCenter);
                 const charUC = parsedData[`Character ${i} UC`] || '';
 
                 charCaptionsPrompt.push({
@@ -347,7 +361,7 @@ export class MultiCharacterParser {
                     base_caption: basePrompt,
                     char_captions: charCaptionsPrompt,
                 },
-                use_coords: useCoords,
+                use_coords: finalUseCoords,
                 use_order: true,
             },
             v4_negative_prompt: {
@@ -423,7 +437,7 @@ export class MultiCharacterParser {
 
         const coordMarker = this.config.coordinateTemplate || '|centers:{coord}';
         const coordBase = coordMarker.replace('{coord}', '');
-        result = result.replace(new RegExp(this._escapeRegex(coordBase) + '\\s*[A-Ea-e][1-5]', 'gi'), '');
+        result = result.replace(new RegExp(this._escapeRegex(coordBase) + '\\s*([A-Ea-e][1-5]|auto)', 'gi'), '');
 
         const resMarker = this.config.resolutionTemplate || this.defaultConfig.resolutionTemplate;
         if (resMarker) {

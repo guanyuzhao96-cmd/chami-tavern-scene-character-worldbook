@@ -1,5 +1,13 @@
 export const changelogData = [
     {
+        version: "1.2.0(11)",
+        items: [
+            "二次处理预设增加三个动态参数，以支持部分特殊渠道的特殊要求",
+            "nai多角色坐标功能支持动态开启，参数为centers:auto时ai会自行判定位置"
+
+        ]
+    },
+    {
         version: "1.2.0(10)",
         items: [
             "绘图公益站开放氛围免费解析，每日更新使用次数",
