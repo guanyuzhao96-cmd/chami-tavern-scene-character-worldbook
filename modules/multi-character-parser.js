@@ -17,6 +17,7 @@ export class MultiCharacterParser {
         negativePromptHeader: 'Negative prompt:',
         coordinateTemplate: '|centers:{coord}',
         resolutionTemplate: 'size:',
+        stylePresetTemplate: 'preset:',
         maxCharacters: 4
     };
 
@@ -125,6 +126,55 @@ export class MultiCharacterParser {
         return null;
     }
 
+    static _extractStylePresetFromString(text) {
+        if (!text || typeof text !== 'string') return null;
+        const presetTemplate = this.config.stylePresetTemplate || this.defaultConfig.stylePresetTemplate;
+        if (!presetTemplate) return null;
+
+        const presetBase = this._escapeRegex(presetTemplate);
+        const presetPattern = new RegExp(`${presetBase}\\s*([^;\\s]+(?:\\s+[^;\\s]+)*)`, 'i');
+        const match = text.match(presetPattern);
+
+        if (match) {
+            const name = (match[1] || '').trim();
+            if (name) {
+                return { name: name, rawMatch: match[0] };
+            }
+        }
+        return null;
+    }
+
+    static extractStylePresetFromPrompt(promptString) {
+        if (!promptString || typeof promptString !== 'string') return null;
+        const maxChars = this.config.maxCharacters || 4;
+        const sceneHeaderBase = this._getSceneHeaderBase();
+        const sceneHeaderPattern = this._escapeRegex(sceneHeaderBase);
+        const sceneRegex = new RegExp(`(${sceneHeaderPattern})\\s*([^;]+);`, 'gi');
+        const sceneMatch = sceneRegex.exec(promptString);
+
+        if (sceneMatch) {
+            const extracted = this._extractStylePresetFromString(sceneMatch[2]);
+            if (extracted) return extracted;
+        }
+
+        const charPromptPatterns = [];
+        for (let i = 1; i <= maxChars; i++) {
+            charPromptPatterns.push(this._escapeRegex(this._getPromptHeaderForChar(i)));
+        }
+
+        for (const promptHeader of charPromptPatterns) {
+            const promptRegex = new RegExp(`(${promptHeader})\\s*([^;]+);`, 'gi');
+            const promptMatch = promptRegex.exec(promptString);
+            if (promptMatch) {
+                const extracted = this._extractStylePresetFromString(promptMatch[2]);
+                if (extracted) return extracted;
+            }
+        }
+
+        const extracted = this._extractStylePresetFromString(promptString);
+        return extracted;
+    }
+
     static extractResolutionFromPrompt(promptString) {
         if (!promptString || typeof promptString !== 'string') return null;
         const maxChars = this.config.maxCharacters || 4;
@@ -164,6 +214,7 @@ export class MultiCharacterParser {
             'Scene Composition': '',
             'Negative prompt': '',
             'Extracted Resolution': null,
+            'Style Preset Name': null,
             'Has Auto Coord': false,
         };
 
@@ -196,6 +247,11 @@ export class MultiCharacterParser {
                 sceneContent = sceneContent.replace(resExtracted.rawMatch, '').trim();
                 result['Extracted Resolution'] = { width: resExtracted.width, height: resExtracted.height };
             }
+            const presetExtracted = this._extractStylePresetFromString(sceneContent);
+            if (presetExtracted) {
+                sceneContent = sceneContent.replace(presetExtracted.rawMatch, '').trim();
+                result['Style Preset Name'] = presetExtracted.name;
+            }
             result['Scene Composition'] = sceneContent;
         }
 
@@ -203,6 +259,13 @@ export class MultiCharacterParser {
             const globalRes = this._extractResolutionFromString(promptString);
             if (globalRes) {
                 result['Extracted Resolution'] = { width: globalRes.width, height: globalRes.height };
+            }
+        }
+
+        if (!result['Style Preset Name']) {
+            const globalPreset = this.extractStylePresetFromPrompt(promptString);
+            if (globalPreset) {
+                result['Style Preset Name'] = globalPreset.name;
             }
         }
 
@@ -314,6 +377,12 @@ export class MultiCharacterParser {
         if (resMarker) {
             const resBase = this._escapeRegex(resMarker);
             result = result.replace(new RegExp(`${resBase}\\s*\\d+\\s*[xX]\\s*\\d+`, 'gi'), '');
+        }
+
+        const presetMarker = this.config.stylePresetTemplate || this.defaultConfig.stylePresetTemplate;
+        if (presetMarker) {
+            const presetBase = this._escapeRegex(presetMarker);
+            result = result.replace(new RegExp(`${presetBase}\\s*[^;,]*(?=;|,|$)`, 'gi'), '');
         }
 
         result = result
@@ -443,6 +512,12 @@ export class MultiCharacterParser {
         if (resMarker) {
             const resBase = this._escapeRegex(resMarker);
             result = result.replace(new RegExp(`${resBase}\\s*\\d+\\s*[xX]\\s*\\d+`, 'gi'), '');
+        }
+
+        const presetMarker = this.config.stylePresetTemplate || this.defaultConfig.stylePresetTemplate;
+        if (presetMarker) {
+            const presetBase = this._escapeRegex(presetMarker);
+            result = result.replace(new RegExp(`${presetBase}\\s*[^;,]*(?=;|,|$)`, 'gi'), '');
         }
 
         result = result
