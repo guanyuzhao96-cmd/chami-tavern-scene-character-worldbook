@@ -18,7 +18,9 @@ export class MultiCharacterParser {
         coordinateTemplate: '|centers:{coord}',
         resolutionTemplate: 'size:',
         stylePresetTemplate: 'preset:',
-        maxCharacters: 4
+        maxCharacters: 4,
+        resolutionEnabled: true,
+        stylePresetEnabled: true
     };
 
     static config = { ...this.defaultConfig };
@@ -108,6 +110,7 @@ export class MultiCharacterParser {
     }
 
     static _extractResolutionFromString(text) {
+        if (!this.config.resolutionEnabled) return null;
         if (!text || typeof text !== 'string') return null;
         const resTemplate = this.config.resolutionTemplate || this.defaultConfig.resolutionTemplate;
         if (!resTemplate) return null;
@@ -127,6 +130,7 @@ export class MultiCharacterParser {
     }
 
     static _extractStylePresetFromString(text) {
+        if (!this.config.stylePresetEnabled) return null;
         if (!text || typeof text !== 'string') return null;
         const presetTemplate = this.config.stylePresetTemplate || this.defaultConfig.stylePresetTemplate;
         if (!presetTemplate) return null;
@@ -374,13 +378,13 @@ export class MultiCharacterParser {
         result = result.replace(new RegExp(this._escapeRegex(coordBase) + '\\s*([A-Ea-e][1-5]|auto)', 'gi'), '');
 
         const resMarker = this.config.resolutionTemplate || this.defaultConfig.resolutionTemplate;
-        if (resMarker) {
+        if (this.config.resolutionEnabled && resMarker) {
             const resBase = this._escapeRegex(resMarker);
             result = result.replace(new RegExp(`${resBase}\\s*\\d+\\s*[xX]\\s*\\d+`, 'gi'), '');
         }
 
         const presetMarker = this.config.stylePresetTemplate || this.defaultConfig.stylePresetTemplate;
-        if (presetMarker) {
+        if (this.config.stylePresetEnabled && presetMarker) {
             const presetBase = this._escapeRegex(presetMarker);
             result = result.replace(new RegExp(`${presetBase}\\s*[^;,]*(?=;|,|$)`, 'gi'), '');
         }
@@ -509,13 +513,13 @@ export class MultiCharacterParser {
         result = result.replace(new RegExp(this._escapeRegex(coordBase) + '\\s*([A-Ea-e][1-5]|auto)', 'gi'), '');
 
         const resMarker = this.config.resolutionTemplate || this.defaultConfig.resolutionTemplate;
-        if (resMarker) {
+        if (this.config.resolutionEnabled && resMarker) {
             const resBase = this._escapeRegex(resMarker);
             result = result.replace(new RegExp(`${resBase}\\s*\\d+\\s*[xX]\\s*\\d+`, 'gi'), '');
         }
 
         const presetMarker = this.config.stylePresetTemplate || this.defaultConfig.stylePresetTemplate;
-        if (presetMarker) {
+        if (this.config.stylePresetEnabled && presetMarker) {
             const presetBase = this._escapeRegex(presetMarker);
             result = result.replace(new RegExp(`${presetBase}\\s*[^;,]*(?=;|,|$)`, 'gi'), '');
         }
@@ -552,7 +556,13 @@ export class MultiCharacterParser {
         }
 
         template += `${negativeHeader}全局负面提示词;\n\n`;
-        template += `${resolutionTemplate}832x1216;`;
+        if (this.config.resolutionEnabled && resolutionTemplate) {
+            template += `${resolutionTemplate}832x1216;\n`;
+        }
+        if (this.config.stylePresetEnabled) {
+            const stylePresetTemplate = this.config.stylePresetTemplate || this.defaultConfig.stylePresetTemplate;
+            template += `${stylePresetTemplate}动漫;`;
+        }
 
         return template;
     }
