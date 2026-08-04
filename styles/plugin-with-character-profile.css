@@ -1,5 +1,0 @@
-/* 原插件完整样式 */
-@import url('./plugin.css');
-
-/* 新增：模拟手机角色资料模块 */
-@import url('../Phone_emulator/css/phone-character-profile.css');

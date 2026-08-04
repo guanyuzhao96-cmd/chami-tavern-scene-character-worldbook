@@ -1,6 +1,6 @@
 # 模拟手机「角色资料」模块
 
-本 Fork 完整保留原 `chami_tavern-scene-plugin` 的全部功能，并在模拟手机主页新增 **角色资料** 应用。
+本模块属于独立的 `chami-phone-emulator` 插件，在完整模拟手机主页中新增 **角色资料** 应用。它不会加载或修改酒馆场景插件的标签、绘图、角色数据库等功能。
 
 ## 已实现
 
@@ -24,14 +24,14 @@
 - `updateWorldbookWith(name, updater)`
 - `generateRaw(options)`
 
-请安装酒馆助手，并启用“酒馆助手宏”。酒馆助手缺失时，原插件其他功能仍可使用，但角色资料无法读取世界书或生成动态资料。
+请安装酒馆助手，并启用“酒馆助手宏”。酒馆助手缺失时，模拟手机其他应用仍可使用，但角色资料无法读取世界书或生成动态资料。
 
 ## 安装地址
 
-在 SillyTavern 的扩展安装界面粘贴：
+仓库重命名后，在 SillyTavern 的扩展安装界面粘贴：
 
 ```text
-https://github.com/guanyuzhao96-cmd/chami_tavern-scene-plugin
+https://github.com/guanyuzhao96-cmd/chami-phone-emulator
 ```
 
 ## 默认命名模板

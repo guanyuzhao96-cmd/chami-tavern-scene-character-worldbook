@@ -1,0 +1,3 @@
+/* 独立模拟手机插件：仅加载手机及角色资料样式，不加载酒馆场景插件样式。 */
+@import url('../Phone_emulator/css/phone-emulator.css');
+@import url('../Phone_emulator/css/phone-character-profile.css');

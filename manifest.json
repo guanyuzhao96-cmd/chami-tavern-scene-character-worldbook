@@ -1,17 +1,12 @@
 {
-  "name": "chami_tavern-scene-plugin",
-  "display_name": "酒馆场景插件（角色资料版）",
-  "version": "1.2.2",
-  "author": "茶蘼 & Tavern Scene Team；角色资料模块：guanyuzhao96-cmd",
-  "description": "完整保留原酒馆场景与模拟手机功能，新增角色资料模块：从世界书读取只读固定资料，根据聊天上下文生成并持续更新动态资料，写入独立世界书条目。",
+  "name": "chami-phone-emulator",
+  "display_name": "模拟手机（角色资料版）",
+  "version": "1.0.0",
+  "author": "茶蘼 & Tavern Scene Team；独立化与角色资料模块：guanyuzhao96-cmd",
+  "description": "从酒馆场景插件中独立剥离的完整模拟手机插件，保留原手机全部应用，并新增角色资料：读取世界书固定资料、根据聊天更新动态资料并写入独立世界书条目。",
   "minSillyTavernVersion": "1.14.0",
   "requires": [],
-  "loading_order": 120,
-  "js": "bootstrap.js",
-  "css": "styles/plugin-with-character-profile.css",
-  "persistent_files": [
-    "data/static-tags.json",
-    "data/static-tags1.json",
-    "data/static-tags2.json"
-  ]
+  "loading_order": 130,
+  "js": "phone-plugin.js",
+  "css": "styles/phone-plugin.css"
 }
