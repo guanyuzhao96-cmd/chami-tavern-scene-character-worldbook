@@ -1,0 +1,880 @@
+/* ==========================================================================
+   AI 提示词后处理 (AI Secondary Processing) 专用样式
+   对应 JS: ai-settings-modal.js 或相关模块
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   主要布局容器 (Desktop / Default)
+   -------------------------------------------------------------------------- */
+   .ai-settings-layout {
+    display: flex;
+    gap: 20px;
+    height: 100%;
+    overflow: hidden; /* 防止外层出现双重滚动条 */
+    min-height: 0;    /* Flex 布局嵌套滚动的关键修复 */
+}
+
+/* --------------------------------------------------------------------------
+   左侧导航栏 (Sidebar)
+   -------------------------------------------------------------------------- */
+.ai-settings-nav {
+    width: 200px;
+    flex-shrink: 0;
+    background: var(--tsp-bg-tertiary);
+    border-radius: var(--tsp-radius-md);
+    padding: 12px 8px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    border-right: 1px solid var(--tsp-border);
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    contain: layout style;
+}
+
+.ai-settings-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.ai-settings-nav li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    cursor: pointer;
+    border-radius: var(--tsp-radius-sm);
+    color: var(--tsp-text-secondary);
+    transition: background-color 0.15s ease, color 0.15s ease;
+    font-size: 0.95em;
+    font-weight: 500;
+    will-change: background-color;
+}
+
+/* 导航项悬停状态 */
+.ai-settings-nav li:hover {
+    background-color: rgba(122, 162, 247, 0.1);
+    color: var(--tsp-text-primary);
+}
+
+/* 导航项激活状态 */
+.ai-settings-nav li.active {
+    background: var(--tsp-accent-primary);
+    color: var(--tsp-bg-main);
+    font-weight: 600;
+}
+
+.ai-settings-nav li i {
+    width: 20px;
+    text-align: center;
+    font-size: 1.1em;
+}
+
+/* --------------------------------------------------------------------------
+   右侧内容区域 (Content Area)
+   -------------------------------------------------------------------------- */
+.ai-settings-content {
+    flex: 1;
+    min-width: 0; /* 防止内容过宽撑开布局 */
+    overflow-y: auto; /* 内容区域独立滚动 */
+    padding-right: 8px; /* 预留滚动条空间 */
+    display: flex;
+    flex-direction: column;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    contain: layout style;
+}
+
+/* 独立的面板容器 */
+.ai-content-panel {
+    display: none; /* 默认隐藏 */
+}
+
+.ai-content-panel.active {
+    display: block; /* 激活时显示 */
+}
+
+/* --------------------------------------------------------------------------
+   通用内容区块 (Sections & Components)
+   -------------------------------------------------------------------------- */
+   .ai-settings-section {
+    background: var(--tsp-bg-secondary); /* <-- 修改后 */
+    border: 1px solid var(--tsp-border);
+    border-radius: var(--tsp-radius-md);
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+.ai-settings-section h4 {
+    margin: 0 0 16px 0;
+    font-size: 1em;
+    font-weight: 600;
+    color: var(--tsp-accent-primary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid rgba(122, 162, 247, 0.2);
+    padding-bottom: 8px;
+}
+
+.tsp-form-hint {
+    font-size: 0.85em;
+    color: var(--tsp-text-muted);
+    margin-top: 4px;
+    font-style: italic;
+}
+
+/* --------------------------------------------------------------------------
+   AI 设置区域内的复选框统一样式 (防止被覆盖)
+   -------------------------------------------------------------------------- */
+.ai-settings-section input[type="checkbox"],
+.ai-settings-section .tsp-form-group input[type="checkbox"],
+.ai-settings-content input[type="checkbox"],
+.ai-content-panel input[type="checkbox"] {
+    position: relative !important;
+    width: 18px !important;
+    height: 18px !important;
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    outline: none !important;
+    background: var(--tsp-bg-input) !important;
+    border: 2px solid var(--tsp-border) !important;
+    border-radius: 4px !important;
+    transition: all 0.2s ease !important;
+    cursor: pointer !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    opacity: 1 !important;
+    display: inline-block !important;
+    vertical-align: middle !important;
+    flex-shrink: 0 !important;
+}
+
+.ai-settings-section input[type="checkbox"]:hover,
+.ai-settings-section .tsp-form-group input[type="checkbox"]:hover,
+.ai-settings-content input[type="checkbox"]:hover,
+.ai-content-panel input[type="checkbox"]:hover {
+    border-color: var(--tsp-accent-primary) !important;
+}
+
+.ai-settings-section input[type="checkbox"]:checked,
+.ai-settings-section .tsp-form-group input[type="checkbox"]:checked,
+.ai-settings-content input[type="checkbox"]:checked,
+.ai-content-panel input[type="checkbox"]:checked {
+    background: var(--tsp-accent-primary) !important;
+    border-color: var(--tsp-accent-primary) !important;
+}
+
+.ai-settings-section input[type="checkbox"]:checked::after,
+.ai-settings-section .tsp-form-group input[type="checkbox"]:checked::after,
+.ai-settings-content input[type="checkbox"]:checked::after,
+.ai-content-panel input[type="checkbox"]:checked::after {
+    content: '✓' !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    color: #fff !important;
+    font-size: 12px !important;
+    font-weight: bold !important;
+    line-height: 1 !important;
+}
+
+/* 针对 tsp-switch 类型的复选框 (开关样式) */
+.ai-settings-section input[type="checkbox"].tsp-switch,
+.ai-settings-section .tsp-form-group input[type="checkbox"].tsp-switch,
+.ai-settings-content input[type="checkbox"].tsp-switch,
+.ai-content-panel input[type="checkbox"].tsp-switch {
+    position: relative !important;
+    width: 44px !important;
+    height: 24px !important;
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    outline: none !important;
+    background: var(--tsp-border) !important;
+    border-radius: 12px !important;
+    transition: background 0.3s !important;
+    cursor: pointer !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    opacity: 1 !important;
+    display: inline-block !important;
+    vertical-align: middle !important;
+}
+
+.ai-settings-section input[type="checkbox"].tsp-switch::after,
+.ai-settings-section .tsp-form-group input[type="checkbox"].tsp-switch::after,
+.ai-settings-content input[type="checkbox"].tsp-switch::after,
+.ai-content-panel input[type="checkbox"].tsp-switch::after {
+    content: '' !important;
+    position: absolute !important;
+    top: 2px !important;
+    left: 2px !important;
+    width: 20px !important;
+    height: 20px !important;
+    background: #fff !important;
+    border-radius: 50% !important;
+    transition: transform 0.3s !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+}
+
+.ai-settings-section input[type="checkbox"].tsp-switch:checked,
+.ai-settings-section .tsp-form-group input[type="checkbox"].tsp-switch:checked,
+.ai-settings-content input[type="checkbox"].tsp-switch:checked,
+.ai-content-panel input[type="checkbox"].tsp-switch:checked {
+    background: var(--tsp-accent-green) !important;
+}
+
+.ai-settings-section input[type="checkbox"].tsp-switch:checked::after,
+.ai-settings-section .tsp-form-group input[type="checkbox"].tsp-switch:checked::after,
+.ai-settings-content input[type="checkbox"].tsp-switch:checked::after,
+.ai-content-panel input[type="checkbox"].tsp-switch:checked::after {
+    transform: translateX(20px) !important;
+}
+
+/* --------------------------------------------------------------------------
+   AI 设置区域内的按钮统一样式
+   -------------------------------------------------------------------------- */
+.ai-preset-actions .tsp-btn,
+.ai-settings-section .tsp-btn,
+.ai-settings-content .tsp-btn,
+.ai-content-panel .tsp-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    padding: 8px 12px !important;
+    background: var(--tsp-bg-tertiary) !important;
+    border: 1px solid var(--tsp-border) !important;
+    border-radius: var(--tsp-radius-sm) !important;
+    color: var(--tsp-text-primary) !important;
+    font-size: 0.9em !important;
+    font-weight: 500 !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    box-shadow: none !important;
+    outline: none !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+}
+
+.ai-preset-actions .tsp-btn:hover,
+.ai-settings-section .tsp-btn:hover,
+.ai-settings-content .tsp-btn:hover,
+.ai-content-panel .tsp-btn:hover {
+    background: var(--tsp-accent-primary) !important;
+    border-color: var(--tsp-accent-primary) !important;
+    color: #fff !important;
+    transform: translateY(-1px) !important;
+}
+
+.ai-preset-actions .tsp-btn:active,
+.ai-settings-section .tsp-btn:active,
+.ai-settings-content .tsp-btn:active,
+.ai-content-panel .tsp-btn:active {
+    transform: translateY(0) !important;
+}
+
+/* 按钮图标样式 */
+.ai-preset-actions .tsp-btn i,
+.ai-settings-section .tsp-btn i,
+.ai-settings-content .tsp-btn i,
+.ai-content-panel .tsp-btn i {
+    font-size: 1em !important;
+    margin: 0 !important;
+}
+
+/* 小按钮样式 */
+.ai-preset-actions .tsp-btn-sm,
+.ai-settings-section .tsp-btn-sm,
+.ai-settings-content .tsp-btn-sm,
+.ai-content-panel .tsp-btn-sm {
+    padding: 6px 10px !important;
+    font-size: 0.85em !important;
+}
+
+/* 主按钮样式 */
+.ai-preset-actions .tsp-btn-primary,
+.ai-settings-section .tsp-btn-primary,
+.ai-settings-content .tsp-btn-primary,
+.ai-content-panel .tsp-btn-primary {
+    background: var(--tsp-accent-primary) !important;
+    border-color: var(--tsp-accent-primary) !important;
+    color: #fff !important;
+}
+
+.ai-preset-actions .tsp-btn-primary:hover,
+.ai-settings-section .tsp-btn-primary:hover,
+.ai-settings-content .tsp-btn-primary:hover,
+.ai-content-panel .tsp-btn-primary:hover {
+    background: var(--tsp-accent-hover) !important;
+    border-color: var(--tsp-accent-hover) !important;
+}
+
+/* 成功按钮样式 */
+.ai-preset-actions .tsp-btn-success,
+.ai-settings-section .tsp-btn-success,
+.ai-settings-content .tsp-btn-success,
+.ai-content-panel .tsp-btn-success {
+    background: var(--tsp-accent-green) !important;
+    border-color: var(--tsp-accent-green) !important;
+    color: #fff !important;
+}
+
+.ai-preset-actions .tsp-btn-success:hover,
+.ai-settings-section .tsp-btn-success:hover,
+.ai-settings-content .tsp-btn-success:hover,
+.ai-content-panel .tsp-btn-success:hover {
+    filter: brightness(1.1) !important;
+}
+
+/* 图标按钮样式 */
+.ai-preset-actions .tsp-btn-icon,
+.ai-settings-section .tsp-btn-icon,
+.ai-settings-content .tsp-btn-icon,
+.ai-content-panel .tsp-btn-icon {
+    padding: 8px !important;
+    min-width: 32px !important;
+    width: 32px !important;
+    height: 32px !important;
+}
+
+/* --------------------------------------------------------------------------
+   预设面板 (Preset Panel)
+   -------------------------------------------------------------------------- */
+.ai-preset-header {
+    display: flex;
+    gap: 16px;
+    align-items: flex-end; /* 让按钮底部对齐 */
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+}
+
+.ai-preset-actions {
+    display: flex;
+    gap: 6px;
+}
+
+/* --------------------------------------------------------------------------
+   世界书 / 正则 / Tag参考 面板列表
+   -------------------------------------------------------------------------- */
+.ai-worldbook-header,
+.ai-regex-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.ai-worldbook-list,
+.ai-regex-list,
+.ai-tagref-folders {
+    max-height: 350px;
+    overflow-y: auto;
+    background: var(--tsp-bg-input);
+    border: 1px solid var(--tsp-border);
+    border-radius: var(--tsp-radius-sm);
+    padding: 4px;
+}
+
+/* 列表项样式 */
+.ai-list-item-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--tsp-border);
+    background: rgba(255, 255, 255, 0.02);
+    transition: background 0.2s;
+}
+
+.ai-list-item-row:last-child {
+    border-bottom: none;
+}
+
+.ai-list-item-row:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.ai-list-item-row label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: var(--tsp-text-primary) !important;
+}
+
+/* --------------------------------------------------------------------------
+   移动端/小屏幕适配 (Max Width: 900px)
+   -------------------------------------------------------------------------- */
+@media screen and (max-width: 900px) {
+    /*
+       将左右布局改为上下布局
+       导航栏变为顶部的横向滚动菜单
+    */
+    .ai-settings-layout {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    /* 导航栏适配 */
+    .ai-settings-nav {
+        width: 100%;
+        height: auto;
+        flex-shrink: 0;
+        border-right: none;
+        border-bottom: 1px solid var(--tsp-border);
+        padding: 4px;
+        background: transparent; /* 融入背景 */
+    }
+
+    .ai-settings-nav ul {
+        flex-direction: row; /* 变为横向 */
+        overflow-x: auto;    /* 允许横向滚动 */
+        overflow-y: hidden;
+        white-space: nowrap; /* 防止换行 */
+        gap: 8px;
+        padding-bottom: 4px; /* 为滚动条留空 */
+
+        /* 隐藏滚动条但保留功能 (可选) */
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+    .ai-settings-nav ul::-webkit-scrollbar {
+        display: none;
+    }
+
+    .ai-settings-nav li {
+        flex: 0 0 auto; /* 防止被压缩 */
+        padding: 8px 12px;
+        font-size: 0.9em;
+        background: var(--tsp-bg-input); /* 手机端给个背景色区分 */
+        border: 1px solid var(--tsp-border);
+    }
+
+    .ai-settings-nav li.active {
+        border-color: var(--tsp-accent-primary);
+    }
+
+    /* 内容区域适配 */
+    .ai-settings-content {
+        padding: 0 4px;
+    }
+
+    .ai-settings-section {
+        padding: 12px;
+    }
+
+    /* 预设头部适配 */
+    .ai-preset-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .ai-preset-actions {
+        justify-content: space-between; /* 按钮均分空间 */
+    }
+
+    .ai-preset-actions .tsp-btn {
+        flex: 1;
+        justify-content: center;
+    }
+
+    /* 列表高度调整，适应手机屏幕 */
+    .ai-worldbook-list,
+    .ai-regex-list,
+    .ai-tagref-folders {
+        max-height: 250px;
+    }
+}
+.ai-regex-actions {
+    display: flex;
+    gap: 5px;
+}
+
+.ai-regex-item {
+    background: var(--tsp-bg-input);
+    border: 1px solid var(--tsp-border);
+    border-radius: 6px;
+    margin-bottom: 8px;
+    overflow: hidden;
+    transition: all 0.2s;
+}
+
+.ai-regex-item-header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    cursor: pointer;
+    user-select: none;
+}
+
+.ai-regex-item-header:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.ai-regex-toggle-icon {
+    width: 24px;
+    text-align: center;
+    color: var(--tsp-text-muted);
+    font-size: 0.8em;
+    margin-right: 5px;
+}
+
+.ai-regex-label {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+/* 折叠状态逻辑 */
+.ai-regex-item.collapsed .ai-regex-item-body {
+    display: none;
+}
+
+.ai-regex-item-body {
+    padding: 12px;
+    border-top: 1px solid var(--tsp-border);
+    background: rgba(0, 0, 0, 0.1);
+    animation: slideDown 0.2s ease-out;
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+/* ==========================================================================
+   AI 世界书面板专属样式
+   ========================================================================== */
+
+   .ai-worldbook-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.ai-worldbook-actions {
+    display: flex;
+    gap: 8px;
+}
+
+/* 已选世界书容器 (标签式) */
+.ai-worldbook-selected-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 8px;
+    background: var(--tsp-bg-input);
+    border: 1px solid var(--tsp-border);
+    border-radius: var(--tsp-radius-sm);
+    min-height: 40px;
+}
+
+/* 可用世界书列表 */
+.ai-worldbook-list {
+    max-height: 250px;
+    overflow-y: auto;
+    border: 1px solid var(--tsp-border);
+    border-radius: var(--tsp-radius-sm);
+    padding: 4px;
+}
+
+.ai-worldbook-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 12px;
+    border-radius: var(--tsp-radius-sm);
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.ai-worldbook-item:hover {
+    background: rgba(122, 162, 247, 0.1);
+}
+
+.ai-worldbook-item .ai-worldbook-name {
+    font-weight: 500;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex: 1;
+}
+
+.ai-worldbook-item-actions {
+    display: flex;
+    gap: 4px;
+    opacity: 0.5;
+    transition: opacity 0.2s;
+}
+
+.ai-worldbook-item:hover .ai-worldbook-item-actions {
+    opacity: 1;
+}
+
+/* ==========================================================================
+   世界书编辑器模态框样式 (移植自油猴脚本)
+   ========================================================================== */
+
+#world-book-editor-overlay .tsp-modal-xl {
+    width: min(1200px, 95vw);
+    height: 90vh;
+}
+
+#wb-editor-body {
+    padding: 0; /* 让列表占满body */
+}
+
+.ai-worldbook-entry-list {
+    height: 100%;
+    overflow-y: auto;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.ai-worldbook-entry {
+    background: var(--tsp-bg-tertiary);
+    border: 1px solid var(--tsp-border);
+    border-radius: var(--tsp-radius-md);
+}
+
+.ai-worldbook-entry.disabled {
+    opacity: 0.6;
+}
+
+.ai-worldbook-entry-header {
+    /* [修改] 让内容可以换行，以容纳摘要信息 */
+    display: block;
+    padding: 10px 16px;
+}
+.ai-worldbook-entry-top-line {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px; /* 为下方的摘要留出空间 */
+}
+
+/*  摘要信息容器 */
+.ai-worldbook-entry-summary {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 12px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(122, 162, 247, 0.1);
+}
+
+/*  单个摘要项 */
+.wb-summary-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.8em;
+    color: var(--tsp-text-secondary);
+    background: var(--tsp-bg-input);
+    padding: 3px 8px;
+    border-radius: 4px;
+    border: 1px solid var(--tsp-border);
+}
+
+/*  状态徽章 (例如 "蓝灯", "禁用" 等) */
+.wb-status-badge {
+    font-weight: bold;
+}
+.wb-status-badge.green { color: #9ece6a; }
+.wb-status-badge.blue { color: #7aa2f7; }
+.wb-status-badge.disabled { color: var(--tsp-accent-red); }
+/* [修改] 调整折叠内容的图标过渡 */
+.ai-worldbook-entry-header .ai-worldbook-entry-controls i {
+    transition: transform 0.2s ease-in-out;
+}
+.ai-worldbook-entry.expanded .ai-worldbook-entry-header i.fa-chevron-down {
+    transform: rotate(180deg);
+}
+.ai-worldbook-entry-title {
+    flex: 1;
+    font-weight: 600;
+}
+
+.ai-worldbook-entry-controls {
+    display: flex;
+    gap: 8px;
+}
+
+.ai-worldbook-entry-body {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.ai-worldbook-entry-expanded {
+    border-top: 1px dashed var(--tsp-border);
+    padding-top: 16px;
+}
+/*  修复世界书已选标签的关闭按钮样式 */
+.ai-worldbook-selected-container .tsp-tag {
+    /* 使整个标签都可点击 */
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.ai-worldbook-selected-container .tsp-tag:hover {
+    background-color: var(--tsp-accent-red);
+    border-color: var(--tsp-accent-red);
+    color: #fff; /* 在悬停时，确保文字为白色 */
+}
+
+/* [核心修改] 为关闭按钮应用主题颜色 */
+.ai-worldbook-selected-container .tsp-tag .tsp-tag-remove {
+    color: var(--tsp-accent-primary); /* 默认使用主强调色 */
+    opacity: 0.7;
+    font-size: 1.2em; /* 稍微放大一点，更容易点击 */
+    line-height: 1;
+    transition: color 0.2s, opacity 0.2s;
+}
+
+/* 鼠标悬停在整个标签上时，关闭按钮变为更醒目的红色 */
+.ai-worldbook-selected-container .tsp-tag:hover .tsp-tag-remove {
+    color: #fff; /* 匹配悬停背景 */
+    opacity: 1;
+}
+
+/* 直接悬停在关闭按钮上，也应用相同效果 */
+.ai-worldbook-selected-container .tsp-tag .tsp-tag-remove:hover {
+    opacity: 1;
+}
+
+/*  可用世界书列表中，已激活条目的高亮样式 */
+.ai-worldbook-item.active {
+    /*
+       魔法发生在这里！
+       color-mix() 会将你的主题主色 (--tsp-accent-primary)
+       以 20% 的不透明度混合到透明背景上，从而动态创建出一个半透明的、
+       与主题完全匹配的高亮背景色。
+    */
+    background-color: color-mix(in srgb, var(--tsp-accent-primary) 20%, transparent);
+
+    /* border 和字体颜色保持不变，因为它们已经使用了主题变量 */
+    border-left: 3px solid var(--tsp-accent-primary);
+    padding-left: 9px; /* 弥补 border-left 占用的空间 */
+}
+
+.ai-worldbook-item.active .ai-worldbook-name {
+    color: var(--tsp-text-primary);
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   [新增] 内容替换词规则样式
+   ========================================================================== */
+
+.ai-regex-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    padding: 10px;
+    margin-bottom: 8px;
+    background: var(--tsp-bg-input);
+    border: 1px solid var(--tsp-border);
+    border-radius: 6px;
+    transition: all 0.2s;
+}
+
+.ai-regex-row:hover {
+    border-color: var(--tsp-accent-primary);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.ai-regex-row .ai-regex-field {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.ai-regex-row .ai-regex-field label {
+    font-size: 12px;
+    color: var(--tsp-text-muted);
+    font-weight: 500;
+}
+
+.ai-regex-row .ai-regex-field .tsp-input {
+    width: 100%;
+    padding: 6px 10px;
+    font-size: 14px;
+}
+
+.ai-regex-row .ai-regex-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    color: var(--tsp-accent-primary);
+    font-weight: bold;
+    font-size: 16px;
+    flex-shrink: 0;
+    margin-bottom: 4px;
+}
+
+.ai-regex-row .replacement-delete {
+    margin-bottom: 4px;
+    flex-shrink: 0;
+}
+
+.ai-regex-row .replacement-delete:hover {
+    background: var(--tsp-accent-red);
+    color: white;
+}
+
+/* [新增] 正则模式开关 */
+.replacement-regex-toggle {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    color: var(--tsp-text-muted);
+    cursor: pointer;
+    user-select: none;
+    flex-shrink: 0;
+    margin-bottom: 8px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    border: 1px solid var(--tsp-border);
+    transition: all 0.2s;
+}
+
+.replacement-regex-toggle:hover {
+    border-color: var(--tsp-accent-primary);
+    color: var(--tsp-text-primary);
+}
+
+.replacement-regex-toggle input[type="checkbox"] {
+    margin: 0;
+    cursor: pointer;
+}
+
+.replacement-regex-toggle input[type="checkbox"]:checked + span {
+    color: var(--tsp-accent-primary);
+    font-weight: 600;
+}
