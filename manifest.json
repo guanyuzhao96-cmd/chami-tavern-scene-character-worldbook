@@ -1,7 +1,7 @@
 {
   "name": "chami_tavern-scene-plugin-character-worldbook",
   "display_name": "酒馆场景插件·角色世界书版",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "author": "茶蘼 & Tavern Scene Team；角色世界书扩展：guanyuzhao96-cmd",
   "description": "完整保留酒馆场景插件功能，并在模拟手机中新增角色世界书模块。使用独立插件标识，可与原版并存安装。",
   "minSillyTavernVersion": "1.14.0",
@@ -14,6 +14,6 @@
     "data/static-tags1.json",
     "data/static-tags2.json"
   ],
-  "homePage": "https://github.com/guanyuzhao96-cmd/chami_tavern-scene-plugin",
+  "homePage": "https://github.com/guanyuzhao96-cmd/chami-tavern-scene-character-worldbook",
   "auto_update": true
 }
