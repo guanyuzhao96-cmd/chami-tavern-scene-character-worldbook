@@ -1,12 +1,12 @@
 {
-  "name": "chami_tavern-scene-plugin",
-  "display_name": "酒馆场景插件（角色世界书版）",
-  "version": "1.2.2",
-  "author": "茶蘼 & Tavern Scene Team",
-  "description": "整合标签超市、角色数据库、AI后处理和文生图功能的统一插件。从 Tampermonkey 脚本迁移而来。；在完整模拟手机中新增角色世界书模块。",
+  "name": "chami_tavern-scene-plugin-character-worldbook",
+  "display_name": "酒馆场景插件·角色世界书版",
+  "version": "1.2.3",
+  "author": "茶蘼 & Tavern Scene Team；角色世界书扩展：guanyuzhao96-cmd",
+  "description": "完整保留酒馆场景插件功能，并在模拟手机中新增角色世界书模块。使用独立插件标识，可与原版并存安装。",
   "minSillyTavernVersion": "1.14.0",
   "requires": [],
-  "loading_order": 120,
+  "loading_order": 130,
   "js": "bootstrap.js",
   "css": "styles/plugin-with-character-profile.css",
   "persistent_files": [
