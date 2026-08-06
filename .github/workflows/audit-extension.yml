@@ -1,0 +1,60 @@
+name: Audit extension installability
+
+on:
+  push:
+    paths:
+      - '.github/workflows/audit-extension.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Build audit report
+        shell: bash
+        run: |
+          set -euo pipefail
+          {
+            echo '# Extension installability audit'
+            echo
+            echo '## Repository footprint'
+            echo '```'
+            du -sh .
+            du -sh .git || true
+            find . -type f -not -path './.git/*' -printf '%s %p\n' | sort -nr | head -n 40 | awk '{printf "%.2f MB %s\n", $1/1048576, $2}'
+            echo '```'
+            echo
+            echo '## Git objects'
+            echo '```'
+            git count-objects -vH
+            echo '```'
+            echo
+            echo '## Required files'
+            for f in manifest.json bootstrap.js index.js styles/plugin-with-character-profile.css Phone_emulator/js/character-profile-bootstrap.js; do
+              if [[ -f "$f" ]]; then echo "- OK: $f"; else echo "- MISSING: $f"; fi
+            done
+            echo
+            echo '## Manifest validation'
+            echo '```'
+            node -e "const fs=require('fs'); const m=JSON.parse(fs.readFileSync('manifest.json','utf8')); console.log(m); for(const k of ['name','display_name','version','js','css']) if(!m[k]) throw new Error('missing '+k); for(const f of [m.js,m.css]) if(!fs.existsSync(f)) throw new Error('missing entry '+f); console.log('manifest valid')"
+            echo '```'
+            echo
+            echo '## Filename checks'
+            echo '```'
+            find . -type f -not -path './.git/*' | grep -E '[<>:"|?*\\]' || true
+            echo '```'
+          } > INSTALL_AUDIT.md
+      - name: Commit report and remove workflow
+        shell: bash
+        run: |
+          rm -f .github/workflows/audit-extension.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'chore: audit extension installability' || exit 0
+          git push
