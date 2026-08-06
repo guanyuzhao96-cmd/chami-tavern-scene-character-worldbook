@@ -1,0 +1,81 @@
+name: Restore full tavern scene plugin
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  restore:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Restore upstream and overlay character profile
+        shell: bash
+        run: |
+          set -euo pipefail
+          workdir="$(mktemp -d)"
+          git clone --depth 1 https://github.com/shaochami/chami_tavern-scene-plugin.git "$workdir/upstream"
+          git clone --depth 1 https://github.com/guanyuzhao96-cmd/chami-phone-emulator.git "$workdir/phone"
+
+          rsync -a --delete \
+            --exclude='.git' \
+            --exclude='.github/workflows/restore-full-plugin.yml' \
+            "$workdir/upstream/" ./
+
+          mkdir -p Phone_emulator/services Phone_emulator/db Phone_emulator/api Phone_emulator/ui Phone_emulator/css Phone_emulator/js
+          cp "$workdir/phone/Phone_emulator/services/phone-worldbook-service.js" Phone_emulator/services/
+          cp "$workdir/phone/Phone_emulator/db/character-profile-storage.js" Phone_emulator/db/
+          cp "$workdir/phone/Phone_emulator/api/character-profile-ai.js" Phone_emulator/api/
+          cp "$workdir/phone/Phone_emulator/services/character-profile-service.js" Phone_emulator/services/
+          cp "$workdir/phone/Phone_emulator/ui/phone-character-profile.js" Phone_emulator/ui/
+          cp "$workdir/phone/Phone_emulator/css/phone-character-profile.css" Phone_emulator/css/
+          cp "$workdir/phone/Phone_emulator/js/character-profile-bootstrap.js" Phone_emulator/js/
+
+          cat > bootstrap.js <<'EOF'
+          import './index.js';
+          import './Phone_emulator/js/character-profile-bootstrap.js';
+          EOF
+
+          mkdir -p styles
+          cat > styles/plugin-with-character-profile.css <<'EOF'
+          @import url('./plugin.css');
+          @import url('../Phone_emulator/css/phone-character-profile.css');
+          EOF
+
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p = Path('manifest.json')
+          data = json.loads(p.read_text(encoding='utf-8'))
+          data['display_name'] = '酒馆场景插件（角色世界书版）'
+          data['version'] = '1.2.2'
+          data['description'] = data.get('description','') + '；在完整模拟手机中新增角色世界书模块。'
+          data['js'] = 'bootstrap.js'
+          data['css'] = 'styles/plugin-with-character-profile.css'
+          data['homePage'] = 'https://github.com/guanyuzhao96-cmd/chami_tavern-scene-plugin'
+          data['auto_update'] = True
+          p.write_text(json.dumps(data, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          PY
+
+          cat > CHARACTER_PROFILE.md <<'EOF'
+          # 角色世界书模块
+
+          本仓库以完整上游酒馆场景插件为底版，保留聊天、朋友圈、文生图和其他全部原功能，仅在模拟手机中新增角色世界书模块。
+
+          手机内打开“角色资料”：
+          - 选择当前角色世界书条目作为只读固定资料；
+          - 根据当前聊天生成和更新动态资料；
+          - 将动态资料写入独立世界书条目；
+          - 固定资料来源不会被修改或删除。
+          EOF
+
+          rm -f .github/workflows/restore-full-plugin.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "feat: restore full tavern scene plugin with character profile" || exit 0
+          git push origin HEAD:main
