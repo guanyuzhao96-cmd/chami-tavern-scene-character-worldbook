@@ -1,7 +1,10 @@
 name: Restore full tavern scene plugin
 
 on:
-  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/restore-full-plugin.yml'
 
 permissions:
   contents: write
